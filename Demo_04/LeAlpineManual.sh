@@ -24,3 +24,8 @@ docker build . -t mssql-alpine
 
 # Container creation
 docker container run --name LeTestAlpine --rm -i -t mssql-alpine:1.0
+
+docker container run -it --network host mssql-tools mssql-cli -S localhost -U sa -P chucho
+docker container run -it mssql-alpine sqlcmd -?
+docker container run -it mssql-alpine mssql-cli --help
+docker container run -it mssql-alpine sqlpackage
