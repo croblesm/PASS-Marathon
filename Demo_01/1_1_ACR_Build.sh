@@ -51,9 +51,10 @@ docker push $acr_name.azurecr.io/$acr_repo:2.0
 open https://portal.azure.com
 cd clouddrive/PASS-Marathon/Demo_01
 ls -ll
-az acr build --image PASS-Marathon:2.1 --registry dbamastery .
+az acr build --image mssqltools-alpine:2.1 --registry dbamastery .
 
 # 7- List images in ACR repository
-az acr repository show --name $acr_name --repository acr_repo -o table
-az acr repository show-manifests -n $acr_name --repository $acr_repo
-az acr repository show-tags -n $acr_name --repository $acr_repo --detail
+az acr repository show --name $acr_name --repository $acr_repo -o table
+az acr repository show-manifests --name $acr_name --repository $acr_repo
+az acr repository show-tags --name $acr_name --repository $acr_repo --detail
+az acr task logs --registry $acr_name
