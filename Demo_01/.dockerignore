@@ -1,4 +1,4 @@
-0_0_ACR_Credentials.sh
 1_1_ACI_Container.sh
 Dockerfile
 .gitignore
+.dockerignore
