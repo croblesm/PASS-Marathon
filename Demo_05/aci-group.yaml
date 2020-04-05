@@ -1,0 +1,32 @@
+apiVersion: 2018-10-01
+location: westcentralus
+name: AG-RedScale
+properties:
+  containers:
+  - name: ag-01
+    properties:
+      image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+      resources:
+        requests:
+          cpu: 2
+          memoryInGb: 2
+      ports:
+      - port: 80
+      - port: 8080
+  - name: ag-02
+    properties:
+      image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+      resources:
+        requests:
+          cpu: 2
+          memoryInGb: 2
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: '1433'
+    - protocol: tcp
+      port: '1433'
+tags: null
+type: Microsoft.ContainerInstance/containerGroups

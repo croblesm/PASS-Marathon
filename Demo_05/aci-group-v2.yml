@@ -1,0 +1,50 @@
+apiVersion: 2018-10-01
+location: westus
+name: AG-RedScale
+properties:
+  containers:
+    - name: ag-01
+      properties:
+        image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+      ports:
+      - protocol: TCP
+        port: 1433
+        environmentVariables:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: SA_PASSWORD
+          value: "Chuchito123456"
+        resources:
+          requests:
+            cpu: 2
+            memoryInGb: 2
+    ipAddress: 
+      ports:
+      - protocol: TCP
+        port: 1433
+      type: Public
+      dnsNameLabel: ag-01
+    osType: Linux
+  - name: ag-02
+      properties:
+        image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+      ports:
+      - protocol: TCP
+        port: 1433
+        environmentVariables:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: SA_PASSWORD
+          value: "Chuchito123456"
+        resources:
+          requests:
+            cpu: 2
+            memoryInGb: 2
+ipAddress: 
+  ports:
+  - protocol: TCP
+    port: 1433
+  type: Public
+  dnsNameLabel: ag-02
+osType: Linux
+type: Microsoft.ContainerInstance/containerGroups
