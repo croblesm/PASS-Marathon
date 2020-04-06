@@ -1,8 +1,7 @@
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-sql-data
+  name: pvc-sytemdbs-tars
 spec:
   accessModes:
   - ReadWriteOnce
@@ -14,7 +13,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-sql-system
+  name: pvc-userdbs-tars
 spec:
   accessModes:
   - ReadWriteOnce
@@ -26,7 +25,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-sql-log
+  name: pvc-log-tars
 spec:
   accessModes:
   - ReadWriteOnce
