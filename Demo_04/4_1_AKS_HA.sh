@@ -42,15 +42,15 @@ kubectl describe pods $MyPod
 # 6- Check pod logs
 kubectl logs $MyPod -f
 
-# 7- Show Kubernetes dashboard
-az aks browse --resource-group $resource_group --name $aks_cluster
-
 # 8- Get public IP of SQL Server service
-kubectl get service mssql-plex
-MyService=`kubectl get service mssql-plex | grep mssql-plex | awk {'print $4'}`
+kubectl get service mssql-plex-service
+MyService=`kubectl get service mssql-plex-service | grep mssql-plex | awk {'print $4'}`
 
 # 10- Connect to SQL Server to create new database
-clear & sqlcmd -S $MyService -U SA -P $sa_password -i "4_2_CreateDatabase.sql"
+sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select @@servername;"
+sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select @@version;"
+sqlcmd -S $MyService,1400 -U SA -P $sa_password -i "4_2_CreateDatabase.sql"
+sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select name from sys.databases;"
 
 # 3- Simulate failure
 ./4_3_SimulateFailure.sh
@@ -60,10 +60,6 @@ clear & sqlcmd -S $MyService -U SA -P $sa_password -i "4_2_CreateDatabase.sql"
 # --------------------------------------
 # 7- Get SQL Server instance properties
 # 8- Explore database objects
-
-# 4- Connect to SQL Server
-clear & sqlcmd -S $MyService -U SA -P $sa_password -Q "select @@servername;"
-clear & sqlcmd -S $MyService -U SA -P $sa_password -Q "select @@version;"
 
 # 5- Show Kubernetes dashboard
 az aks browse --resource-group $resource_group --name $aks_cluster
