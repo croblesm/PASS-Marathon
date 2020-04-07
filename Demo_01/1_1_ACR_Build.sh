@@ -47,7 +47,7 @@ image_id=`docker images | grep mssqltools-alpine | awk '{ print $3 }' | head -1`
 docker tag $image_id $acr_name.azurecr.io/$acr_repo:2.0
 
 # Pushing image to ACR (dbamastery) - mssqltools-alpine repository 
-docker push $acr_name.azurecr.io/$acr_repo:2.0
+docker push $acr_name.azurecr.io/$acr_repo:2.0 
 # Check ACR using Docker extension 👀
 
 # 6- Build and push image with Azure Cloud shell
@@ -55,6 +55,7 @@ docker push $acr_name.azurecr.io/$acr_repo:2.0
 open https://portal.azure.com
 cd clouddrive/PASS-Marathon/Demo_01
 ls -ll
+# Build, tag and push in a single instruction
 az acr build --image mssqltools-alpine:2.1 --registry dbamastery .
 
 # 7- List images in ACR repository
