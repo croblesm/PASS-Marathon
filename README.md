@@ -12,7 +12,7 @@ If you are looking to translate your existing knowledge about SQL Server contain
 * DBA / database developer experience with SQL Server
 
 ## **Demos**  
-* [Building a custom MSSQLTools image in ACR](Demo_02)
+* [Building custom MSSQL-Tools image with ACR](Demo_01)
 * [Managing a SQL container in ACI using Azure CLI](Demo_02)
 * [Managing a SQL container in ACI using Azure portal](Demo_03)
 * [SQL Server deployments in ACI](Demo_03)

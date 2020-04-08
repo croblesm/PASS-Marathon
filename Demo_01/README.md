@@ -1,4 +1,4 @@
-# Demo 01 - Building a custom MSSQLTools image in ACR
+# Demo 01 - Building custom MSSQL-Tools image with ACR
 
 * Create Azure Container Registry (optional)
 * List ACR registry and repositories

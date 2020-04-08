@@ -1,4 +1,4 @@
-# DEMO 1 - ACR Build
+# DEMO 1 - Building custom MSSQL-Tools image with ACR
 #
 #   1- Create Azure resource group
 #   2- Create Azure Container Registry
