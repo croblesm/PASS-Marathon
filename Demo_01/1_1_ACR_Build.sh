@@ -11,7 +11,7 @@
 # References:
 #   Azure Container Registry authentication with service principals
 #   open https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal
-#
+#   open https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
 #   Azure CLI - ACR commands reference
 #   open https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
@@ -22,43 +22,53 @@ acr_repo=mssqltools-alpine;
 cd ~/Documents/$resource_group/Demo_01;
 az acr login --name $acr_name;
 
-# 1- Create Azure resource group
-az group create --resource-group $resource_group --location westus
-
-# 2- Create Azure Container Registry
+# 1- Create Azure Container Registry
 az acr create --resource-group $resource_group --name $acr_name --sku Standard --location westus
 
-# 3- List ACR registry
+# 2- List ACR registry
 az acr list --resource-group $resource_group -o table
 
-# 4- Build local image
-# Checking Dockerfile -  mssqltools with Alpine
+# 3- Inspect Dockerfile
+# Custom mssqltools image with Alpine
 code Dockerfile
+
+# 4- Build local image - mssqltools
 docker build . -t mssqltools-alpine -f Dockerfile
 
-# 5- Tag and push local image to ACR
-# Check Docker login pre-requesites
+# 5- Tag and push local image to ACR repository
+# Listing local image
 docker images mssqltools-alpine
 
 # Getting image id
 image_id=`docker images | grep mssqltools-alpine | awk '{ print $3 }' | head -1`
 
-# Tagging image with build number
+# Tagging image with private registry and build number
+# ACR FQN = dbamastery.azurecr.io/mssqltools-alpine:2.0
 docker tag $image_id $acr_name.azurecr.io/$acr_repo:2.0
 
-# Pushing image to ACR (dbamastery) - mssqltools-alpine repository 
+# Pushing image to ACR (dbamastery) - mssqltools-alpine repository
+# Make sure to check ACR authentication and login process with Docker first
 docker push $acr_name.azurecr.io/$acr_repo:2.0 
-# Check ACR using Docker extension 👀
 
-# 6- Build and push image with Azure Cloud shell
+# --------------------------------------
+# Visual Studio Code extensions - step
+# --------------------------------------
+# 6- Check ACR repositories / images with VS Code Docker extension 👀
+
+# 7- Build and push image with Azure Cloud shell (single instruction)
 # No Docker, no problem 👍👌
+
+# Navigate to Azure portal and start a new Azure Cloud shell session
 open https://portal.azure.com
+
+# Navigate to cloud share
 cd clouddrive/PASS-Marathon/Demo_01
 ls -ll
+
 # Build, tag and push in a single instruction
 az acr build --image mssqltools-alpine:2.1 --registry dbamastery .
 
-# 7- List images in ACR repository
+# 8- List images in ACR repository
 az acr repository show --name $acr_name --repository $acr_repo -o table
 az acr repository show-manifests --name $acr_name --repository $acr_repo
 az acr repository show-tags --name $acr_name --repository $acr_repo --detail
