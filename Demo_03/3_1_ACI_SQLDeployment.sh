@@ -53,7 +53,7 @@ ls -ll /SQLFiles/SQLScripts
 # 5- Copy SQL scripts to file share
 
 # 6- Deploy SQL script (from container)
-sqlcmd -U SA -d master -i /SQLFiles/SQLScripts/3_2-Create_HumanResources_DB.sql
+sqlcmd -U SA -d master -i /SQLFiles/SQLScripts/3_2_Create_Database.sql
 
 # Checking deployment results (from container)
 sqlcmd -U SA -d master -Q "set nocount on; select name from sys.databases"

@@ -15,7 +15,7 @@ If you are looking to translate your existing knowledge about SQL Server contain
 * [Building custom MSSQL-Tools image with ACR](Demo_01)
 * [Managing SQL containers in ACI with Azure CLI](Demo_02)
 * [Managing SQL containers in ACI with Azure portal](Demo_02)
-* [SQL Server deployments in ACI](Demo_03)
+* [Script deployment for SQL containers in ACI](Demo_03)
 * [SQL Server HA in AKS](Demo_04)
 
 ## Questions?

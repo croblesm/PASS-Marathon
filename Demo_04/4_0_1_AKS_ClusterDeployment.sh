@@ -1,4 +1,6 @@
-# DEMO 4 - Azure Kubernetes services (AKS) Deployment
+# DEMO 4 - Azure Kubernetes services (AKS) cluster Deployment
+#   Kubernetes cluster creation in AKS
+#
 #   1- Create AKS cluster
 #   2- Get AKS credentials for AKS cluster
 #   3- Check kubectl cluster context
