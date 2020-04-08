@@ -1,10 +1,13 @@
-# DEMO 2_1 - ACI Container (Azure CLI)
+# DEMO 3 - Script deployment for SQL containers in ACI 
 #
-#   1- Connect to ACI bash console
-#   2- Check ACI logs
-#   3- Check ACI properties
-#   4- Connect to ACI console
-#   5- Connect to ACI with Azure Data Studio
+#   1- Check SQL container status
+#   2- Connect to ACI bash console to explore folders
+#   3- Listing folders and files
+#   4- Explore ACI + Azure file share with Azure Storage Explorer
+#   5- Copy SQL scripts to file share
+#   6- Deploy SQL script
+#   7- Get SQL Server instance properties
+#   8- Explore database objects
 # -----------------------------------------------------------------------------
 # References:
 #   Mount an Azure file share in Azure Container Instances
@@ -17,21 +20,27 @@ location=westus
 file_share_name=aci-fileshare
 aci_name=aci-sql-dev02;
 cd ~/Documents/$resource_group/Demo_03;
-
-# Check ACI status
+ 
+# 1- Check SQL container status
 az container show \
     --resource-group $resource_group \
-    --name $aci_name -o table
+    --name $aci_name \
+    --query "{Status:instanceView.state}" -o table
 
-# 2- Connect to ACI bash console
+# 2- Connect to ACI bash console to explore folders
 az container exec --resource-group $resource_group --name $aci_name --exec-command "/bin/bash"
 
 # 3- Listing folders and files
 
 # Creating temp bash profile
+## Saving bash prompt changes into temp bash profile
 # echo "export PS1=\"[dba mastery@ACI] $ \"" > /tmp/sql/.bashrc
+## Saving SA password env variable into temp bash profile
 # echo "export SQLCMDPASSWORD=_SqLr0ck5_" >> /tmp/sql/.bashrc
+## Exporting mssql-tools path
 # echo "export PATH=\$PATH:/opt/mssql-tools/bin" >> /tmp/sql/.bashrc
+
+# Loading profile settings
 source /tmp/sql/.bashrc
 
 # Check folders and files
@@ -40,14 +49,14 @@ ls -ll /SQLFiles/SQLScripts
 # --------------------------------------
 # Azure Storage Explorer step
 # --------------------------------------
-# 5- Explore ACI - file share with Azure Storage Explorer
-# 6- Copy SQL scripts
+# 4- Explore ACI + Azure file share with Azure Storage Explorer
+# 5- Copy SQL scripts to file share
 
-# 7- Deploy SQL script
-sqlcmd -U SA -d master -i /SQLFiles/SQLScripts/1-Create_HumanResources_DB.sql
+# 6- Deploy SQL script (from container)
+sqlcmd -U SA -d master -i /SQLFiles/SQLScripts/3_2-Create_HumanResources_DB.sql
 
-# Listing existing databases
-sqlcmd -U SA -d master -Q "select name from sys.databases"
+# Checking deployment results (from container)
+sqlcmd -U SA -d master -Q "set nocount on; select name from sys.databases"
 
 # --------------------------------------
 # Azure Data Studio step
