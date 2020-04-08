@@ -12,6 +12,7 @@
 #   Azure Container Registry authentication with service principals
 #   open https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal
 #   open https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
+#
 #   Azure CLI - ACR commands reference
 #   open https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 

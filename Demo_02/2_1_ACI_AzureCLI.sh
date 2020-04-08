@@ -1,8 +1,13 @@
-# DEMO 2_1 - ACI Container (Azure CLI)
+# DEMO 2 - ACI Container (Azure CLI)
+# Part 1 - Azure CLI experience
 #
-#   1- Create ACI
-#   2- Check ACI logs
-#   3- Check ACI properties
+#   1- Create SQL container in ACI
+#   2- Check SQL Container logs
+#   3- Check SQL Container properties
+#   4- Connect to SQL Server container in ACI
+#   5- Show SQL instance dashboard
+#   6- Basic container lifecycle management
+#       # Stop, start, delete
 # -----------------------------------------------------------------------------
 # References:
 #   Query Azure CLI command output
@@ -16,7 +21,7 @@ resource_group=PASS-Marathon;
 aci_name=aci-sql-dev01;
 cd ~/Documents/$resource_group/Demo_02;
 
-# 1- Create ACI
+# 1- Create SQL Server container in ACI
 az container create \
     --resource-group $resource_group \
     --name $aci_name \
@@ -26,9 +31,30 @@ az container create \
     --cpu 4  --memory 4 \
     --port 1433
 
-# 2- Check ACI logs
+# 2- Check SQL Container logs
 az container logs  --resource-group $resource_group --name $aci_name --follow
 
-# 3- Check ACI properties
+# 3- Check SQL Container properties
+# Listing all containers in my ACI group
 az container list --resource-group $resource_group -o table
+
+# Listing specific container properties
+az container show --resource-group $resource_group --name $aci_name
+az container show --resource-group $resource_group --name $aci_name "{IP_Adress:ipAddress.ip,FQDN:ipAddress.fqdn}" --out table
 az container list --resource-group $resource_group --query "sort_by([].{Name:name,FQDN:ipAddress.fqdn,IP:ipAddress.ip,Port:ipAddress.ports[].port,Status:provisioningState}, &Name)" -o json
+
+# --------------------------------------
+# Azure Data Studio step
+# --------------------------------------
+# 4- Connect to SQL Server container in ACI
+# 5- Show SQL instance dashboard
+
+# 6- Basic container lifecycle management
+# Stop container
+az container stop --name $aci_name --resource-group $resource_group
+
+# Start container
+az container start --name $aci_name --resource-group $resource_group
+
+# Delete container
+az container delete --name $aci_name --resource-group $resource_group

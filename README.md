@@ -13,8 +13,8 @@ If you are looking to translate your existing knowledge about SQL Server contain
 
 ## **Demos**  
 * [Building custom MSSQL-Tools image with ACR](Demo_01)
-* [Managing a SQL container in ACI using Azure CLI](Demo_02)
-* [Managing a SQL container in ACI using Azure portal](Demo_03)
+* [Managing SQL containers in ACI with Azure CLI](Demo_02)
+* [Managing SQL containers in ACI with Azure portal](Demo_02)
 * [SQL Server deployments in ACI](Demo_03)
 * [SQL Server HA in AKS](Demo_04)
 
