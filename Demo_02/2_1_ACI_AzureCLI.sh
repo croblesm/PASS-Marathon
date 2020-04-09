@@ -4,9 +4,9 @@
 #   1- Create SQL container in ACI
 #   2- Check SQL Container logs
 #   3- Check SQL Container properties
-#   4- Connect to SQL Server container in ACI
-#   5- Show SQL instance dashboard
-#   6- Basic container lifecycle management
+#   4- Connect to SQL Server container in ACI (Azure Data Studio)
+#   5- Show SQL instance dashboard (Azure Data Studio - Optional)
+#   6- Basic container lifecycle management (Optional)
 #       # Stop, start, delete
 # -----------------------------------------------------------------------------
 # References:
@@ -49,7 +49,7 @@ az container list --resource-group $resource_group --query "sort_by([].{Name:nam
 # 4- Connect to SQL Server container in ACI
 # 5- Show SQL instance dashboard
 
-# 6- Basic container lifecycle management
+# 6- Basic container lifecycle management (Optional)
 # Stop container
 az container stop --name $aci_name --resource-group $resource_group
 

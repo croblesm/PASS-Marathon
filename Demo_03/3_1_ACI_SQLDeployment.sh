@@ -4,10 +4,10 @@
 #   2- Connect to ACI bash console to explore folders
 #   3- Listing folders and files
 #   4- Explore ACI + Azure file share with Azure Storage Explorer
-#   5- Copy SQL scripts to file share
-#   6- Deploy SQL script
-#   7- Get SQL Server instance properties
-#   8- Explore database objects
+#   5- Copy SQL scripts to file share (Azure Storage Explorer)
+#   6- Deploy SQL script (From container)
+#   7- Get SQL Server instance properties (Azure Data Studio)
+#   8- Explore database objects (Azure Data Studio - Optional)
 # -----------------------------------------------------------------------------
 # References:
 #   Mount an Azure file share in Azure Container Instances

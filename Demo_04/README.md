@@ -6,11 +6,11 @@
 * Check pod events
 * Check pod logs
 * Get public IP of SQL Server service
-* Connect with Azure Data Studio
+* Connect with Azure Data Studio (**Azure Data Studio - Optional**)
 * Connect to SQL Server to create new database
 * Simulate failure
-* Get SQL Server instance properties
-* Explore database objects
+* Get SQL Server instance properties (**Azure Data Studio - Optional**)
+* Explore database objects (**Azure Data Studio - Optional**)
 * Show Kubernetes dashboard
 
 # Questions?

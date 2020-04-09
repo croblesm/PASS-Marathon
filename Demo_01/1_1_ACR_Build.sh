@@ -1,12 +1,13 @@
 # DEMO 1 - Building custom MSSQL-Tools image with ACR
 #
-#   1- Create Azure resource group
-#   2- Create Azure Container Registry
-#   3- List ACR registry
-#   4- Build and push local image to ACR
-#   5- Tag and push local image to ACR
-#   6- Build and push image with Azure Cloud shell
-#   7- List images in ACR repository
+#   1- Create Azure Container Registry
+#   2- List ACR registry
+#   3- Inspect Dockerfile
+#   4- Build local image - mssqltools
+#   5- Tag and push local image to ACR repository
+#   6- Check ACR repositories + images with VS Code Docker extension
+#   7- Build and push image with Azure Cloud shell (single instruction)
+#   8- List images in ACR repository
 # -----------------------------------------------------------------------------
 # References:
 #   Azure Container Registry authentication with service principals
@@ -52,9 +53,9 @@ docker tag $image_id $acr_name.azurecr.io/$acr_repo:2.0
 docker push $acr_name.azurecr.io/$acr_repo:2.0 
 
 # --------------------------------------
-# Visual Studio Code extensions - step
+# Visual Studio Code extension - step
 # --------------------------------------
-# 6- Check ACR repositories / images with VS Code Docker extension 👀
+# 6- Check ACR repositories + images with VS Code Docker extension 👀
 
 # 7- Build and push image with Azure Cloud shell (single instruction)
 # No Docker, no problem 👍👌

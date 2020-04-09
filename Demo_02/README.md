@@ -2,11 +2,11 @@
 
 ### Part 1 - Azure CLI experience
 
-* Create SQL Server container in ACI
-* Check SQL Container logs  
+* Create SQL container in ACI
+* Check SQL Container logs
 * Check SQL Container properties
-* Connect to SQL Server container in ACI (Azure Data Studio)
-* Show SQL instance dashboard (Azure Data Studio)  
+* Connect to SQL Server container in ACI (**Azure Data Studio**)
+* Show SQL instance dashboard (**Azure Data Studio - Optional**)
 * Basic container lifecycle management (Optional)
     * Stop, start, delete  
     
@@ -18,7 +18,7 @@
 * Connect to container console
 * Stop container
 * Start container
-* Delete container  
+* Delete container
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

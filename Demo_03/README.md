@@ -4,10 +4,11 @@
 * Connect to ACI bash console to explore folders
 * Listing folders and files
 * Explore ACI + Azure file share with Azure Storage Explorer
-* Copy SQL scripts to file share
-* Deploy SQL script
-* Get SQL Server instance properties
-* Explore database objects  
+* Copy SQL scripts to file share (**Azure Storage Explorer**)
+* Deploy SQL script (**From container**)
+* Get SQL Server instance properties (**Azure Data Studio**)
+* Explore database objects (**Azure Data Studio - Optional**)
+
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

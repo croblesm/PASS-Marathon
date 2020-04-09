@@ -5,13 +5,19 @@
 #   4- Check pod events
 #   5- Check pod logs
 #   6- Get public IP of SQL Server service
-#   7- Connect with Azure Data Studio
+#   7- Connect with Azure Data Studio (Azure Data Studio - Optional)
 #   8- Connect to SQL Server to create new database
 #   9- Simulate failure
-#   10- Get SQL Server instance properties
-#   11- Explore database objects
+#   10- Get SQL Server instance properties (Azure Data Studio - Optional)
+#   11- Explore database objects (Azure Data Studio - Optional)
 #   12- Show Kubernetes dashboard
 # -----------------------------------------------------------------------------
+# References:
+#   Kubernetes cheat sheet
+#   https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+#
+#   Azure CLI - Kubernetes
+#   https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest
 
 # 0- Environment variables | demo path
 resource_group=PASS-Marathon;
