@@ -1,5 +1,5 @@
 # SQL Server Command Line Tools - custom image
-# From Alpine 3.11
+# From Alpine 3.11 (~5 MBs)
 FROM alpine:3.11
 LABEL maintainer="@dbamastery"
 

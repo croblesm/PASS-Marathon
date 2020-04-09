@@ -1,8 +1,8 @@
 # DEMO 1 - Building custom MSSQL-Tools image with ACR
 #
 #   1- Create Azure Container Registry
-#   2- List ACR registry
-#   3- Inspect Dockerfile
+#   2- Check ACR properties
+#   3- Inspect Dockerfile - custom local image
 #   4- Build local image - mssqltools
 #   5- Tag and push local image to ACR repository
 #   6- Check ACR repositories + images with VS Code Docker extension
@@ -47,6 +47,7 @@ image_id=`docker images | grep mssqltools-alpine | awk '{ print $3 }' | head -1`
 # Tagging image with private registry and build number
 # ACR FQN = dbamastery.azurecr.io/mssqltools-alpine:2.0
 docker tag $image_id $acr_name.azurecr.io/$acr_repo:2.0
+docker images
 
 # Pushing image to ACR (dbamastery) - mssqltools-alpine repository
 # Make sure to check ACR authentication and login process with Docker first

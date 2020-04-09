@@ -10,7 +10,8 @@ SELECT
 			WHEN '12.0' THEN 'SQL Server 2014'
 			WHEN '13.0' THEN 'SQL Server 2016'
 			WHEN '14.0' THEN 'SQL Server 2017'
-			ELSE 'Newer than SQL Server 2017'
+      WHEN '15.0' THEN 'SQL Server 2019'
+			ELSE 'Newer than SQL Server 2019'
 		END AS [Version Build],
     SERVERPROPERTY('ProductVersion') AS [Product Version],
     SERVERPROPERTY('ProductUpdateLevel') AS [CU],
