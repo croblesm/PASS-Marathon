@@ -1,6 +1,6 @@
 # Demo 02 - Managing SQL containers in ACI
 
-> Part 1 - Portal experience
+> Part 1 - Azure CLI experience
 
 * Create SQL Server container in ACI
 * Check SQL Container logs  
