@@ -1,6 +1,6 @@
 # Demo 02 - Managing SQL containers in ACI
 
-> Part 1 - Azure CLI experience
+### Part 1 - Azure CLI experience
 
 * Create SQL Server container in ACI
 * Check SQL Container logs  
@@ -10,7 +10,7 @@
 * Basic container lifecycle management (Optional)
     * Stop, start, delete  
     
-> Part 2 - Portal experience
+### Part 2 - Portal experience
 
 * Open Azure portal and navigate to resource group / ACI
 * Monitor CPU and memory utilization
