@@ -7,6 +7,8 @@ As the container technology growths to become more relevant and popular, Microso
 
 If you are looking to translate your existing knowledge about SQL Server containers on-prem to the cloud, this session will get you started in your container-driven cloud journey to design, deploy, manage and monitor SQL Containers in Microsoft Azure.
 
+[![24 Hours of PASS](https://img.youtube.com/vi/vgvQW_Tli1s/hqdefault.jpg)](https://youtu.be/vgvQW_Tli1s "PASS Marathon - Carlos Robles")
+
 ## **Prerequisites**  
 * A valid Microsoft Azure account and subscription
 * DBA / database developer experience with SQL Server
