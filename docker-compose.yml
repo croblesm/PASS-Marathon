@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  pass-marathon:
-    image: pass-marathon
-    build: .
-    ports:
-      - 3000
