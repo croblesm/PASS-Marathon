@@ -154,9 +154,18 @@ az container logs  --resource-group $resource_group --name $aci_name --follow
 az container list --resource-group $resource_group -o table
 
 # Listing specific container properties
-az container show --resource-group $resource_group --name $aci_name
-az container show --resource-group $resource_group --name $aci_name --query "{IP_Adress:ipAddress.ip, FQDN:ipAddress.fqdn}" --out table
-az container list --resource-group $resource_group --query "sort_by([].{Name:name,FQDN:ipAddress.fqdn,IP:ipAddress.ip,Port:ipAddress.ports[].port,Status:provisioningState}, &Name)" -o json
+az container show \
+    --resource-group $resource_group \
+    --name $aci_name
+
+az container show \
+    --resource-group $resource_group \
+    --name $aci_name \
+    --query "{IP_Adress:ipAddress.ip, FQDN:ipAddress.fqdn}" --out table
+
+az container list \
+    --resource-group $resource_group \
+    --query "sort_by([].{Name:name,FQDN:ipAddress.fqdn,IP:ipAddress.ip,Port:ipAddress.ports[].port,Status:provisioningState}, &Name)" -o json
 
 # --------------------------------------
 # Azure Data Studio step
